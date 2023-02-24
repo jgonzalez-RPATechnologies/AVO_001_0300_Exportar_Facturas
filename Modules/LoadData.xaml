@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LoadData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_transactionItem" Type="InArgument(ui:QueueItem)" />
-    <x:Property Name="out_data" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_Data" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,636</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1980</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoadData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -36,10 +36,12 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="76">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -73,9 +75,17 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;Este módulo creará un diccionario a partir de un item de la cola para facilitar el uso de la información de dicho item.&#xA;&#xA;******** REQUISITOS ********&#xA;Este módulo no tiene requisitos previos de aplicaciones.&#xA;&#xA;******** ENTRADAS ********&#xA;- in_transactionItem&lt;QueueItem&gt;: Elemento de la cola desde el que se obtendrán los datos.&#xA;&#xA;******** SALIDAS ********&#xA;- out_data &lt;Dictionary&lt;string, Object&gt;: Datos de salida del módulo&#xA;        - dato1&lt;string&gt;: Descripción del dato 1&#xA;        - dato2&lt;string&gt;: Descripción del dato 2" DisplayName="LoadData" sap:VirtualizedContainerService.HintSize="496,571" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xD;&#xA;Este módulo creará un diccionario a partir de un item de la cola para facilitar el uso de la información de dicho item.&#xD;&#xA;&#xD;&#xA;******** REQUISITOS ********&#xD;&#xA;Este módulo no tiene requisitos previos de aplicaciones.&#xD;&#xA;&#xD;&#xA;******** ENTRADAS ********&#xD;&#xA;- in_TransactionItem&lt;QueueItem&gt;: Elemento de la cola desde el que se obtendrán los datos.&#xD;&#xA;&#xD;&#xA;******** SALIDAS ********&#xD;&#xA;- out_Data &lt;Dictionary&lt;string, Object&gt;: Datos de salida del módulo.&#xD;&#xA;        - SchemaVersion&lt;string&gt;: La versión del modelo XML del cliente.&#xD;&#xA;        - Modality&lt;string&gt;: Por defecto, individual (&quot;I&quot;).&#xD;&#xA;        - InvoicesCount&lt;int&gt;: Número de facturas que se incluyen en el fichero, por defecto, 1.&#xD;&#xA;        - TotalInvoicesAmount&lt;double&gt;: Importe total de la factura.&#xD;&#xA;        - InvoiceCurencyCode&lt;string&gt;: Código de la moneda en la que está la factura.&#xD;&#xA;        - InvoiceIssuerType&lt;string&gt;: por defecto, &quot;EM&quot;.&#xD;&#xA;        - SellerTaxIdentificationNumber&lt;string&gt;: Identificador fiscal del emisor de las facturas.&#xD;&#xA;        - SellerPersonTypeCode&lt;string&gt;: Tipo de entidad que emite la factura, por defecto, persona jurídica (&quot;J&quot;).&#xD;&#xA;        - SellerResidenceTypeCode&lt;string&gt;: Tipo de residencia del emisor de la factura, por defecto, residente en España (&quot;R&quot;).&#xD;&#xA;        - BuyerTaxIdentificationNumber&lt;string&gt;: Identidficador fiscal del comprador.&#xD;&#xA;        - BuyerPersonTypeCode&lt;string&gt;: Tipo de entidad que recibe la factura, por defecto, persona jurídica (&quot;J&quot;).&#xD;&#xA;        - BuyerResidenceTypeCode: Tipo de residencia del comprador, por defecto, residente en España (&quot;R&quot;).&#xD;&#xA;        - LanguageName&lt;string&gt;: Código dle idioma en el que está la factura, por defecto, Español (&quot;ES&quot;).&#xD;&#xA;        - IssueDate&lt;DateTime&gt;: Fecha de emisión de la factura.&#xD;&#xA;        - TaxCurrencyCode&lt;string&gt;: Código de la moneda en la que están indicados los impuestos de la factura.&#xD;&#xA;        - InvoiceDocumentType&lt;string&gt;: Por defecto, &quot;FC&quot;&#xD;&#xA;        - InvoiceClass&lt;string&gt;: Código del tipo de factura.&#xD;&#xA;        - InvoiceNumber&lt;string&gt;: Número de factura.&#xD;&#xA;        - InstallmentDueDate&lt;DateTime&gt;: Fecha de caducidad de la factura.&#xD;&#xA;        - CorrectiveInvoiceNumber&lt;string&gt;: Número de factura a la que corrige esta factura.&#xD;&#xA;        - Items&lt;DataTable&gt;: Tabla con las líneas de la factura, tendrá los siguiente campos:&#xD;&#xA;                - ItemsDescription&lt;string&gt;: Descripción de la línea de factura.&#xD;&#xA;                - DeliveryNoteNumber&lt;string&gt;: Pedido asociado a la línea de la factura.&#xD;&#xA;        - Taxes&lt;DataTable&gt;: Tabla con los totales de los impuestos de la factura, tendrá los siguientes campos:&#xD;&#xA;                - TaxTypeCode&lt;string&gt;: Código del tipo de impuesto.&#xD;&#xA;                - TaxableBase&lt;double&gt;: Base imponible sobre la que se aplicará el impuesto.&#xD;&#xA;                - TaxRate&lt;double&gt;: tipo impositivo.&#xD;&#xA;                - TaxAmount&lt;double&gt;: Importe del impuesto.&#xD;&#xA;        - InvoiceTotal&lt;double&gt;: Total de la factura.&#xD;&#xA;        - TotalGrossAmount&lt;double&gt;: Importe bruto de la factura.&#xD;&#xA;        - TotalTaxOutputs&lt;double&gt;: Total impuestos." DisplayName="LoadData" sap:VirtualizedContainerService.HintSize="496,1915" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -90,15 +100,207 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MultipleAssign DisplayName="Assign values from Queue Item" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Assign values from Queue Item" sap:VirtualizedContainerService.HintSize="434,845" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[out_data("str_SchemaVersion")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[out_data("SchemaVersion")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:Object">[in_transactionItem.SpecificContent("str_SchemaVersion").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("Modality")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_transactionItem.SpecificContent("")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_data("InvoicesCount")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_transactionItem.SpecificContent("str_InvoicesCount").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_data("TotalInvoicesAmount")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[CDbl(in_transactionItem.SpecificContent("dbl_TotalInvoicesAmount")).ToString("0.00")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceCurencyCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_InvoiceCurencyCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceIssuerType")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("strInvoiceIssuerType").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("SellerTaxIdentificationNumber")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_SellerTaxIdentificationNumber").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("SellerPersonTypeCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_SellerPersonTypeCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("SellerResidenceTypeCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_SellerResidenceTypeCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("BuyerTaxIdentificationNumber")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_BuyerTaxIdentificationNumber").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("BuyerPersonTypeCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_BuyerPersonTypeCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("BuyerResidenceTypeCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_BuyerResidenceTypeCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("LanguageName")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_LanguageName").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("IssueDate")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_IssueDate").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("TaxCurrencyCode")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_TaxCurrencyCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceDocumentType")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_InvoiceDocumentType").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceClass")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_InvoiceClass").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceNumber")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_InvoiceNumber").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InstallmentDueDate")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_InstallmentDueDate").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("CorrectiveInvoiceNumber")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("str_CorrectiveInvoiceNumber").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("Items")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[CType(in_TransactionItem.SpecificContent("dt_Items"), DataTable)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("Taxes")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[CType(in_TransactionItem.SpecificContent("dt_Taxes"), DataTable)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("InvoiceTotal")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[CDbl(in_TransactionItem.SpecificContent("dbl_InvoiceTotal")).ToString("0.00")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("TotalGrossAmount")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[CDbl(in_TransactionItem.SpecificContent("dbl_TotalGrossAmount")).ToString("0.00")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("TotalTaxOutputs")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[Cdbl(in_TransactionItem.SpecificContent("dbl_TotalTaxOutputs")).ToString("0.00")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
