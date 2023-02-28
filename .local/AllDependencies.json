@@ -123,6 +123,27 @@
           }
         }
       },
+      "FluentFTP/34.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Console": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "compile": {
+          "lib/net5.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/FluentFTP.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Google.Apis/1.55.0": {
         "type": "package",
         "dependencies": {
@@ -2078,6 +2099,35 @@
           }
         }
       },
+      "SSH.NET/2020.0.1": {
+        "type": "package",
+        "dependencies": {
+          "SshNet.Security.Cryptography": "[1.3.0]"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Renci.SshNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SshNet.Security.Cryptography/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SshNet.Security.Cryptography.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Activities.ViewModels/1.0.0-20220715.4": {
         "type": "package",
         "compile": {
@@ -3042,6 +3092,40 @@
         },
         "runtimeTargets": {
           "runtimes/win/lib/netstandard2.0/System.Net.Http.WinHttpHandler.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Net.NameResolution/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Principal.Windows": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Net.NameResolution.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.NameResolution.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -4318,6 +4402,93 @@
           }
         }
       },
+      "UiPath.FTP.Activities/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentFTP": "34.0.0",
+          "SSH.NET": "2020.0.1"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/UiPath.FTP.Activities.Design.dll": {},
+          "lib/net5.0-windows7.0/UiPath.FTP.Activities.dll": {
+            "related": ".Packaging.pdb"
+          },
+          "lib/net5.0-windows7.0/UiPath.FTP.dll": {
+            "related": ".Activities.Packaging.pdb"
+          }
+        },
+        "resource": {
+          "lib/net5.0-windows7.0/de/UiPath.FTP.Activities.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0-windows7.0/de/UiPath.FTP.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0-windows7.0/es-MX/UiPath.FTP.Activities.resources.dll": {
+            "locale": "es-MX"
+          },
+          "lib/net5.0-windows7.0/es-MX/UiPath.FTP.resources.dll": {
+            "locale": "es-MX"
+          },
+          "lib/net5.0-windows7.0/es/UiPath.FTP.Activities.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0-windows7.0/es/UiPath.FTP.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0-windows7.0/fr/UiPath.FTP.Activities.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0-windows7.0/fr/UiPath.FTP.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0-windows7.0/ja/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net5.0-windows7.0/ja/UiPath.FTP.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net5.0-windows7.0/ko/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net5.0-windows7.0/ko/UiPath.FTP.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.Activities.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0-windows7.0/pt/UiPath.FTP.Activities.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net5.0-windows7.0/pt/UiPath.FTP.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net5.0-windows7.0/ru/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0-windows7.0/ru/UiPath.FTP.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0-windows7.0/tr/UiPath.FTP.Activities.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net5.0-windows7.0/tr/UiPath.FTP.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.Activities.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.resources.dll": {
+            "locale": "zh-CN"
+          }
+        }
+      },
       "UiPath.ImageProcessing/22.4.1": {
         "type": "package",
         "compile": {
@@ -5498,6 +5669,27 @@
         },
         "runtime": {
           "lib/netstandard2.0/ExcelNumberFormat.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentFTP/34.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Console": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "compile": {
+          "lib/net5.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/FluentFTP.dll": {
             "related": ".xml"
           }
         }
@@ -7492,6 +7684,35 @@
         "runtime": {
           "lib/netstandard2.1/ICSharpCode.SharpZipLib.dll": {
             "related": ".pdb;.xml"
+          }
+        }
+      },
+      "SSH.NET/2020.0.1": {
+        "type": "package",
+        "dependencies": {
+          "SshNet.Security.Cryptography": "[1.3.0]"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Renci.SshNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SshNet.Security.Cryptography/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SshNet.Security.Cryptography.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -9553,6 +9774,93 @@
           }
         }
       },
+      "UiPath.FTP.Activities/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentFTP": "34.0.0",
+          "SSH.NET": "2020.0.1"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/UiPath.FTP.Activities.Design.dll": {},
+          "lib/net5.0-windows7.0/UiPath.FTP.Activities.dll": {
+            "related": ".Packaging.pdb"
+          },
+          "lib/net5.0-windows7.0/UiPath.FTP.dll": {
+            "related": ".Activities.Packaging.pdb"
+          }
+        },
+        "resource": {
+          "lib/net5.0-windows7.0/de/UiPath.FTP.Activities.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0-windows7.0/de/UiPath.FTP.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0-windows7.0/es-MX/UiPath.FTP.Activities.resources.dll": {
+            "locale": "es-MX"
+          },
+          "lib/net5.0-windows7.0/es-MX/UiPath.FTP.resources.dll": {
+            "locale": "es-MX"
+          },
+          "lib/net5.0-windows7.0/es/UiPath.FTP.Activities.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0-windows7.0/es/UiPath.FTP.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0-windows7.0/fr/UiPath.FTP.Activities.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0-windows7.0/fr/UiPath.FTP.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0-windows7.0/ja/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net5.0-windows7.0/ja/UiPath.FTP.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net5.0-windows7.0/ko/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net5.0-windows7.0/ko/UiPath.FTP.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.Activities.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0-windows7.0/pt/UiPath.FTP.Activities.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net5.0-windows7.0/pt/UiPath.FTP.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net5.0-windows7.0/ru/UiPath.FTP.Activities.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0-windows7.0/ru/UiPath.FTP.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0-windows7.0/tr/UiPath.FTP.Activities.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net5.0-windows7.0/tr/UiPath.FTP.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.Activities.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.resources.dll": {
+            "locale": "zh-CN"
+          }
+        }
+      },
       "UiPath.ImageProcessing/22.4.1": {
         "type": "package",
         "compile": {
@@ -10756,6 +11064,37 @@
         "lib/netstandard1.0/ExcelNumberFormat.xml",
         "lib/netstandard2.0/ExcelNumberFormat.dll",
         "lib/netstandard2.0/ExcelNumberFormat.xml"
+      ]
+    },
+    "FluentFTP/34.0.0": {
+      "sha512": "uw92f2gZz11xEr67HlS5rs9oYeLY/rx+mOFgPdDYDh7Je9/Za7OfnS0D0niNxaoIMWw1VEPsI8bPn65lIv68JQ==",
+      "type": "package",
+      "path": "fluentftp/34.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "fluentftp.34.0.0.nupkg.sha512",
+        "fluentftp.nuspec",
+        "lib/net20/FluentFTP.dll",
+        "lib/net20/FluentFTP.xml",
+        "lib/net35/FluentFTP.dll",
+        "lib/net35/FluentFTP.xml",
+        "lib/net40/FluentFTP.dll",
+        "lib/net40/FluentFTP.xml",
+        "lib/net45/FluentFTP.dll",
+        "lib/net45/FluentFTP.xml",
+        "lib/net5.0/FluentFTP.dll",
+        "lib/net5.0/FluentFTP.xml",
+        "lib/netstandard1.4/FluentFTP.dll",
+        "lib/netstandard1.4/FluentFTP.xml",
+        "lib/netstandard1.6/FluentFTP.dll",
+        "lib/netstandard1.6/FluentFTP.xml",
+        "lib/netstandard2.0/FluentFTP.dll",
+        "lib/netstandard2.0/FluentFTP.xml",
+        "lib/netstandard2.1/FluentFTP.dll",
+        "lib/netstandard2.1/FluentFTP.xml",
+        "logo-nuget.png"
       ]
     },
     "Google.Apis/1.55.0": {
@@ -14020,6 +14359,70 @@
         "lib/netstandard2.1/ICSharpCode.SharpZipLib.xml",
         "sharpziplib.1.3.3.nupkg.sha512",
         "sharpziplib.nuspec"
+      ]
+    },
+    "SSH.NET/2020.0.1": {
+      "sha512": "DhVeQ8JzoS8Z25VwZfQ/9HEjTO8eWs4ldsMkcMsUFK7TFc8GnpxBeRBj3X8mc5+rwvzZNNmLDm08a8TpPZNF/g==",
+      "type": "package",
+      "path": "ssh.net/2020.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Renci.SshNet.dll",
+        "lib/net35/Renci.SshNet.xml",
+        "lib/net40/Renci.SshNet.dll",
+        "lib/net40/Renci.SshNet.xml",
+        "lib/netstandard1.3/Renci.SshNet.dll",
+        "lib/netstandard1.3/Renci.SshNet.xml",
+        "lib/netstandard2.0/Renci.SshNet.dll",
+        "lib/netstandard2.0/Renci.SshNet.xml",
+        "lib/sl4/Renci.SshNet.dll",
+        "lib/sl4/Renci.SshNet.xml",
+        "lib/sl5/Renci.SshNet.dll",
+        "lib/sl5/Renci.SshNet.xml",
+        "lib/uap10/Renci.SshNet.dll",
+        "lib/uap10/Renci.SshNet.xml",
+        "lib/wp71/Renci.SshNet.dll",
+        "lib/wp71/Renci.SshNet.xml",
+        "lib/wp8/Renci.SshNet.dll",
+        "lib/wp8/Renci.SshNet.xml",
+        "ssh.net.2020.0.1.nupkg.sha512",
+        "ssh.net.nuspec"
+      ]
+    },
+    "SshNet.Security.Cryptography/1.3.0": {
+      "sha512": "5pBIXRjcSO/amY8WztpmNOhaaCNHY/B6CcYDI7FSTgqSyo/ZUojlLiKcsl+YGbxQuLX439qIkMfP0PHqxqJi/Q==",
+      "type": "package",
+      "path": "sshnet.security.cryptography/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/SshNet.Security.Cryptography.dll",
+        "lib/net20/SshNet.Security.Cryptography.xml",
+        "lib/net40/SshNet.Security.Cryptography.dll",
+        "lib/net40/SshNet.Security.Cryptography.xml",
+        "lib/net45/SshNet.Security.Cryptography.dll",
+        "lib/net45/SshNet.Security.Cryptography.xml",
+        "lib/netstandard1.0/SshNet.Security.Cryptography.dll",
+        "lib/netstandard1.0/SshNet.Security.Cryptography.xml",
+        "lib/netstandard1.3/SshNet.Security.Cryptography.dll",
+        "lib/netstandard1.3/SshNet.Security.Cryptography.xml",
+        "lib/netstandard2.0/SshNet.Security.Cryptography.dll",
+        "lib/netstandard2.0/SshNet.Security.Cryptography.xml",
+        "lib/portable-net45+win8+wpa81/SshNet.Security.Cryptography.dll",
+        "lib/portable-net45+win8+wpa81/SshNet.Security.Cryptography.xml",
+        "lib/sl4/SshNet.Security.Cryptography.dll",
+        "lib/sl4/SshNet.Security.Cryptography.xml",
+        "lib/sl5/SshNet.Security.Cryptography.dll",
+        "lib/sl5/SshNet.Security.Cryptography.xml",
+        "lib/uap10.0/SshNet.Security.Cryptography.dll",
+        "lib/uap10.0/SshNet.Security.Cryptography.xml",
+        "lib/wp71/SshNet.Security.Cryptography.dll",
+        "lib/wp71/SshNet.Security.Cryptography.xml",
+        "lib/wp8/SshNet.Security.Cryptography.dll",
+        "lib/wp8/SshNet.Security.Cryptography.xml",
+        "sshnet.security.cryptography.1.3.0.nupkg.sha512",
+        "sshnet.security.cryptography.nuspec"
       ]
     },
     "System.Activities.ViewModels/1.0.0-20220715.4": {
@@ -19360,6 +19763,94 @@
         "uipath.excel.activities.nuspec"
       ]
     },
+    "UiPath.FTP.Activities/2.3.0": {
+      "sha512": "3avz0QmlexVePFsZfJkc2SmLpKm1BHk2P45hMThRZUxZg5lu6xcA2ORhGGII1+gjwcFLBAuxiZo0f3SliUBXQA==",
+      "type": "package",
+      "path": "uipath.ftp.activities/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/UiPath.FTP.Activities.Design.dll",
+        "lib/net461/UiPath.FTP.Activities.Packaging.pdb",
+        "lib/net461/UiPath.FTP.Activities.dll",
+        "lib/net461/UiPath.FTP.dll",
+        "lib/net461/de/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/de/UiPath.FTP.resources.dll",
+        "lib/net461/es-MX/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/es-MX/UiPath.FTP.resources.dll",
+        "lib/net461/es/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/es/UiPath.FTP.resources.dll",
+        "lib/net461/fr/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/fr/UiPath.FTP.resources.dll",
+        "lib/net461/ja/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/ja/UiPath.FTP.resources.dll",
+        "lib/net461/ko/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/ko/UiPath.FTP.resources.dll",
+        "lib/net461/pt-BR/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/pt-BR/UiPath.FTP.resources.dll",
+        "lib/net461/pt/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/pt/UiPath.FTP.resources.dll",
+        "lib/net461/ru/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/ru/UiPath.FTP.resources.dll",
+        "lib/net461/tr/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/tr/UiPath.FTP.resources.dll",
+        "lib/net461/zh-CN/UiPath.FTP.Activities.resources.dll",
+        "lib/net461/zh-CN/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/UiPath.FTP.Activities.Design.dll",
+        "lib/net5.0-windows7.0/UiPath.FTP.Activities.Packaging.pdb",
+        "lib/net5.0-windows7.0/UiPath.FTP.Activities.dll",
+        "lib/net5.0-windows7.0/UiPath.FTP.dll",
+        "lib/net5.0-windows7.0/de/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/de/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/es-MX/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/es-MX/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/es/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/es/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/fr/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/fr/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/ja/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/ja/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/ko/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/ko/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/pt-BR/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/pt/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/pt/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/ru/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/ru/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/tr/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/tr/UiPath.FTP.resources.dll",
+        "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0-windows7.0/zh-CN/UiPath.FTP.resources.dll",
+        "lib/net5.0/UiPath.FTP.Activities.Packaging.pdb",
+        "lib/net5.0/UiPath.FTP.Activities.dll",
+        "lib/net5.0/UiPath.FTP.dll",
+        "lib/net5.0/de/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/de/UiPath.FTP.resources.dll",
+        "lib/net5.0/es-MX/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/es-MX/UiPath.FTP.resources.dll",
+        "lib/net5.0/es/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/es/UiPath.FTP.resources.dll",
+        "lib/net5.0/fr/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/fr/UiPath.FTP.resources.dll",
+        "lib/net5.0/ja/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/ja/UiPath.FTP.resources.dll",
+        "lib/net5.0/ko/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/ko/UiPath.FTP.resources.dll",
+        "lib/net5.0/pt-BR/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/pt-BR/UiPath.FTP.resources.dll",
+        "lib/net5.0/pt/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/pt/UiPath.FTP.resources.dll",
+        "lib/net5.0/ru/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/ru/UiPath.FTP.resources.dll",
+        "lib/net5.0/tr/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/tr/UiPath.FTP.resources.dll",
+        "lib/net5.0/zh-CN/UiPath.FTP.Activities.resources.dll",
+        "lib/net5.0/zh-CN/UiPath.FTP.resources.dll",
+        "uipath.ftp.activities.2.3.0.nupkg.sha512",
+        "uipath.ftp.activities.nuspec"
+      ]
+    },
     "UiPath.ImageProcessing/22.4.1": {
       "sha512": "/1ocq1FZfmFV/iTtViG/xYmWtbZLSRAwFVsHaOyk2XBOV1xZCB6FNKhggUULqS8QpIwtS5Kab+Yq6WJBmt8PFw==",
       "type": "package",
@@ -21096,6 +21587,7 @@
     "net6.0-windows7.0": [
       "Newtonsoft.Json >= 13.0.2 <= 13.0.2",
       "UiPath.Excel.Activities >= 2.17.0-preview <= 2.17.0-preview",
+      "UiPath.FTP.Activities >= 2.3.0 <= 2.3.0",
       "UiPath.Mail.Activities >= 1.18.2 <= 1.18.2",
       "UiPath.System.Activities >= 22.10.4 <= 22.10.4",
       "UiPath.Testing.Activities >= 22.12.0-preview <= 22.12.0-preview",
@@ -21126,6 +21618,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[2.17.0-preview, 2.17.0-preview]"
+          },
+          "UiPath.FTP.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2.3.0, 2.3.0]"
           },
           "UiPath.Mail.Activities": {
             "include": "Runtime",
