@@ -4,7 +4,7 @@
     <x:Property Name="out_Data" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_Debug" Type="InArgument(x:Boolean)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,3727</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,3900</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -110,7 +110,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;Cumplimenta y guarda un fichero XML según los datos de entrada, siguiendo las especificaciones del cliente.&#xA;&#xA;******** REQUISITOS ********&#xA;Requiere el paquete Newtonsoft.Json&#xA;&#xA;******** ENTRADAS ********&#xA;- in_data&lt;Dictionary&lt;string, Object&gt;&gt;: Datos de entrada del módulo.&#xA;        - AttachPdfPath &lt;string&gt;: Ruta donde se encuentra el documento PDF que se debe adjuntar al XML.&#xA;        - OutputPath &lt;string&gt;: Ruta donde se almacenará el fichero XML generado.&#xA;        - TotalAmmount &lt;string&gt;: Importe total de todas las facturas incluidas.&#xA;        - InvoicesCount &lt;string&gt;: Número de facturas que se incluirán en el documento&#xA;        - InvoiceCurencyCode &lt;string&gt;: Código de la moneda en la que están definidas las cantidades de la factura.&#xA;        - InvoiceIssuerType &lt;string&gt;: Tipo de emisor de la factura.&#xA;        - BatchIdentifier &lt;string&gt;: Identificador del grupo de facturas.&#xA;&#xA;  &#xA;******** SALIDAS ********&#xA;Este módulo no tiene salida." DisplayName="CreateXML_Avoris" sap:VirtualizedContainerService.HintSize="609,3662" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;Cumplimenta y guarda un fichero XML según los datos de entrada, siguiendo las especificaciones del cliente.&#xA;&#xA;******** REQUISITOS ********&#xA;Requiere el paquete Newtonsoft.Json&#xA;&#xA;******** ENTRADAS ********&#xA;- in_data&lt;Dictionary&lt;string, Object&gt;&gt;: Datos de entrada del módulo.&#xA;        - AttachPdfPath &lt;string&gt;: Ruta donde se encuentra el documento PDF que se debe adjuntar al XML.&#xA;        - OutputPath &lt;string&gt;: Ruta donde se almacenará el fichero XML generado.&#xA;        - TotalAmmount &lt;string&gt;: Importe total de todas las facturas incluidas.&#xA;        - InvoicesCount &lt;string&gt;: Número de facturas que se incluirán en el documento&#xA;        - InvoiceCurencyCode &lt;string&gt;: Código de la moneda en la que están definidas las cantidades de la factura.&#xA;        - InvoiceIssuerType &lt;string&gt;: Tipo de emisor de la factura.&#xA;        - BatchIdentifier &lt;string&gt;: Identificador del grupo de facturas.&#xA;&#xA;  &#xA;******** SALIDAS ********&#xA;Este módulo no tiene salida." DisplayName="CreateXML_Avoris" sap:VirtualizedContainerService.HintSize="609,3835" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sx:XmlDocument" Name="doc" />
       <Variable x:TypeArguments="x:String" Name="str_json" />
@@ -252,7 +252,7 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="Build Items" sap:VirtualizedContainerService.HintSize="547,453" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence DisplayName="Build Items" sap:VirtualizedContainerService.HintSize="547,626" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <Sequence.Variables>
         <Variable x:TypeArguments="sxl:XElement" Name="Items" />
       </Sequence.Variables>
@@ -269,18 +269,31 @@
           <InArgument x:TypeArguments="sxl:XElement">[New XElement("Items")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(in_Data(&quot;dt_Items&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,220" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(in_Data(&quot;dt_Items&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,393" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,103" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,276" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sxl:XElement" Name="InvoiceLine" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_Data = _&#xD;&#xA;    New XElement(&quot;InvoiceLine&quot;,&#xD;&#xA;        If(String.IsNullOrWhitespace(in_Data.Field(Of String)(&quot;str_DeliveryNoteNumber&quot;)), ' Campo Opcional&#xD;&#xA;            New XElement(&quot;str_DeliveryNoteNumber&quot;, &#xD;&#xA;                New XElement(&quot;DeliveryNote&quot;,&#xD;&#xA;                    New XElement(&quot;DeliveryNoteNumber&quot;, in_Data.Field(Of String)(&quot;str_DeliveryNoteNumber&quot;))&#xD;&#xA;                )&#xD;&#xA;            ), Nothing&#xD;&#xA;        ), &#xD;&#xA;        New XElement(&quot;ItemDescription&quot;, in_Data.Field(Of String)(&quot;str_ItemsDescription&quot;))&#xD;&#xA;    )" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="338,165" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+                <ui:InvokeCode.Arguments>
+                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Data">
+                    <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="Row" />
+                  </InArgument>
+                  <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">
+                    <VisualBasicReference x:TypeArguments="sxl:XElement" ExpressionText="InvoiceLine" />
+                  </OutArgument>
+                </ui:InvokeCode.Arguments>
+              </ui:InvokeCode>
             </Sequence>
           </ActivityAction>
         </ui:ForEachRow.Body>
