@@ -1,10 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CreateXML_Avoris" this:CreateXML_Avoris.in_Data="[New Dictionary(Of String, Object) From {&#xA;&#x9;{&quot;BatchIdentifier&quot;, &quot;asdf-43?&quot;}&#xA;}]" this:CreateXML_Avoris.in_Debug="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sx="clr-namespace:System.Xml;assembly=System.Private.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateXML_Avoris" this:CreateXML_Avoris.in_Data="[New Dictionary(Of String, Object) From {&#xA;&#x9;{&quot;BatchIdentifier&quot;, &quot;asdf-43?&quot;}&#xA;}]" this:CreateXML_Avoris.in_DebugWF="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sx="clr-namespace:System.Xml;assembly=System.Private.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Data" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_Data" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_Debug" Type="InArgument(x:Boolean)" />
+    <x:Property sap2010:Annotation.AnnotationText="Se usa para comprobar el Workflow, se debe establecer como False para el uso normal." Name="in_DebugWF" Type="InArgument(x:Boolean)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,3900</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,3946</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="128">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -108,9 +108,10 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;Cumplimenta y guarda un fichero XML según los datos de entrada, siguiendo las especificaciones del cliente.&#xA;&#xA;******** REQUISITOS ********&#xA;Requiere el paquete Newtonsoft.Json&#xA;&#xA;******** ENTRADAS ********&#xA;- in_data&lt;Dictionary&lt;string, Object&gt;&gt;: Datos de entrada del módulo.&#xA;        - AttachPdfPath &lt;string&gt;: Ruta donde se encuentra el documento PDF que se debe adjuntar al XML.&#xA;        - OutputPath &lt;string&gt;: Ruta donde se almacenará el fichero XML generado.&#xA;        - TotalAmmount &lt;string&gt;: Importe total de todas las facturas incluidas.&#xA;        - InvoicesCount &lt;string&gt;: Número de facturas que se incluirán en el documento&#xA;        - InvoiceCurencyCode &lt;string&gt;: Código de la moneda en la que están definidas las cantidades de la factura.&#xA;        - InvoiceIssuerType &lt;string&gt;: Tipo de emisor de la factura.&#xA;        - BatchIdentifier &lt;string&gt;: Identificador del grupo de facturas.&#xA;&#xA;  &#xA;******** SALIDAS ********&#xA;Este módulo no tiene salida." DisplayName="CreateXML_Avoris" sap:VirtualizedContainerService.HintSize="609,3835" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;Cumplimenta y guarda un fichero XML según los datos de entrada, siguiendo las especificaciones del cliente.&#xA;&#xA;******** REQUISITOS ********&#xA;Requiere el paquete Newtonsoft.Json&#xA;&#xA;******** ENTRADAS ********&#xA;- in_data&lt;Dictionary&lt;string, Object&gt;&gt;: Datos de entrada del módulo.&#xA;        - AttachPdfPath &lt;string&gt;: Ruta donde se encuentra el documento PDF que se debe adjuntar al XML.&#xA;        - OutputPath &lt;string&gt;: Ruta donde se almacenará el fichero XML generado.&#xA;        - TotalAmmount &lt;string&gt;: Importe total de todas las facturas incluidas.&#xA;        - InvoicesCount &lt;string&gt;: Número de facturas que se incluirán en el documento&#xA;        - InvoiceCurencyCode &lt;string&gt;: Código de la moneda en la que están definidas las cantidades de la factura.&#xA;        - InvoiceIssuerType &lt;string&gt;: Tipo de emisor de la factura.&#xA;        - BatchIdentifier &lt;string&gt;: Identificador del grupo de facturas.&#xA;&#xA;  &#xA;******** SALIDAS ********&#xA;-out_Data&lt;Dictionary&lt;string,Object&gt;: Datos de salida del módulo.&#xD;&#xA;         - str_Filename&lt;string&gt;:  El nombre del fichero que se genera sin la extensión." DisplayName="CreateXML_Avoris" sap:VirtualizedContainerService.HintSize="609,3881" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sx:XmlDocument" Name="doc" />
       <Variable x:TypeArguments="x:String" Name="str_json" />
@@ -121,6 +122,7 @@
       <Variable x:TypeArguments="sxl:XElement" Name="Tax" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Data" />
       <Variable x:TypeArguments="sxl:XElement" Name="Items" />
+      <Variable x:TypeArguments="sxl:XElement" Name="Document" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -131,7 +133,7 @@
     <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547,819" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
       <ui:IfElseIf.ConditionBlocks>
         <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-          <ui:IfElseIfBlock BlockType="If" Condition="[in_Debug]">
+          <ui:IfElseIfBlock BlockType="If" Condition="[in_DebugWF]">
             <ui:IfElseIfBlock.Then>
               <Sequence DisplayName="Initialize Debug" sap:VirtualizedContainerService.HintSize="496,394" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <Sequence.Variables>
@@ -152,9 +154,10 @@
                   <Assign.Value>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" xml:space="preserve">[New Dictionary(Of String, Object) From {
 	{"str_SchemaVersion", "3.2"},
+	{"str_BatchIdentifier", "ASDF1234"},
 	{"str_Modality", "I"},
-	{"int_InvoicesCount", 1},
-	{"dbl_TotalInvoicesAmount", 100.20},
+	{"str_InvoicesCount", "1"},
+	{"str_TotalInvoicesAmount", "100.20"},
 	{"str_InvoiceCurrencyCode","[EUR]"},
 	{"str_InvoiceIssuerType", "EM"},
 	{"str_SellerTaxIdentificationNumber", "B12345678"},
@@ -164,18 +167,18 @@
 	{"str_BuyerPersonTypeCode", "J"},
 	{"str_BuyerResidenceTypeCode", "R"},
 	{"str_LanguageName", "[es]"},
-	{"date_IssueDate", New DateTime(2023,2,27)},
+	{"str_IssueDate", "2023-02-27"},
 	{"str_TaxCurrencyCode", "[EUR]"},
 	{"str_InvoiceDocumentType","FC" },
 	{"str_InvoiceClass", "OO"},
-	{"date_InstallmentDueDate", New DateTime(2024, 2,1)},
+	{"str_InstallmentDueDate", "2024-02-31"},
 	{"str_InvoiceNumber", "asd-123456"},
 	{"str_CorrectiveInvoiceNumber", "zxc\12345"}, 
 	{"dt_Items", dt_Items},
 	{"dt_Taxes", dt_Taxes},
-	{"dbl_InvoiceTotal", 2000.32}, 
-	{"dbl_TotalGrossAmount", 534.43},
-	{"dbl_TotalTaxOutputs", 345.22},
+	{"str_InvoiceTotal", "2000.32"}, 
+	{"str_TotalGrossAmount", "534.43"},
+	{"str_TotalTaxOutputs", "345.22"},
 	{"str_RutaFichero", "C:\Users\AugustoGonzalez-RPA\Downloads\Esquema_castellano_v3_2_x_06_06_2017_unificado.pdf"}
 }]</InArgument>
                   </Assign.Value>
@@ -219,7 +222,7 @@
           <InArgument x:TypeArguments="sxl:XElement">[New XElement("TaxesOutputs")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(in_Data(&quot;dt_TaxesOutputs&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,569" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(Data(&quot;dt_Taxes&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,569" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -231,14 +234,10 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_Data = _&#xD;&#xA;    New XElement (&quot;Tax&quot;,&#xD;&#xA;        New XElement(&quot;TaxTypeCode&quot;, in_Data.Field(Of String)(&quot;TaxTypeCode&quot;)),&#xD;&#xA;        New XElement(&quot;TaxRate&quot;, in_Data.Field(Of Double)(&quot;TaxRate&quot;).ToString(&quot;0.00&quot;)),&#xD;&#xA;        New XElement(&quot;TaxableBase&quot;, &#xD;&#xA;            New XElement(&quot;TotalAmount&quot;, (in_Data.Field(Of Double)(&quot;TaxableBase&quot;)).ToString(&quot;0.00&quot;))&#xD;&#xA;        ),&#xD;&#xA;        New XElement(&quot;TaxAmount&quot;,&#xD;&#xA;            New XElement(&quot;TotalAmount&quot;, (in_Data.Field(Of Double)(&quot;TaxAmount&quot;)).ToString(&quot;0.00&quot;)) ' Opcional&#xD;&#xA;        )&#xD;&#xA;    )" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="338,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_Data =&#xD;&#xA;new XElement(&quot;Tax&quot;,&#xD;&#xA;&#x9;new XElement(&quot;TaxTypeCode&quot;, in_Data.Field&lt;string&gt;(&quot;str_TaxTypeCode&quot;)),&#xD;&#xA;&#x9;new XElement(&quot;TaxRate&quot;, in_Data.Field&lt;double&gt;(&quot;dbl_TaxRate&quot;).ToString(&quot;0.00&quot;)),&#xD;&#xA;&#x9;new XElement(&quot;TaxableBase&quot;, &#xD;&#xA;&#x9;&#x9;new XElement(&quot;TotalAmount&quot;, (in_Data.Field&lt;double&gt;(&quot;dbl_TaxableBase&quot;)).ToString(&quot;0.00&quot;))&#xD;&#xA;&#x9;),&#xD;&#xA;&#x9;new XElement(&quot;TaxAmount&quot;,&#xD;&#xA;&#x9;&#x9;new XElement(&quot;TotalAmount&quot;, (in_Data.Field&lt;double&gt;(&quot;dbl_TaxAmount&quot;)).ToString(&quot;0.00&quot;)) // Opcional&#xD;&#xA;&#x9;)&#xD;&#xA;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="338,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Data">
-                    <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="Row" />
-                  </InArgument>
-                  <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">
-                    <VisualBasicReference x:TypeArguments="sxl:XElement" ExpressionText="Tax" />
-                  </OutArgument>
+                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Data">[Row]</InArgument>
+                  <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">[Tax]</OutArgument>
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
               <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="338,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
@@ -252,13 +251,14 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="Build Items" sap:VirtualizedContainerService.HintSize="547,626" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap2010:Annotation.AnnotationText="Se tendrá que modificar cuando se obtengan los impuestos por línea de factura" DisplayName="Build Items" sap:VirtualizedContainerService.HintSize="547,657" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <Sequence.Variables>
         <Variable x:TypeArguments="sxl:XElement" Name="Items" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_13">
@@ -269,7 +269,7 @@
           <InArgument x:TypeArguments="sxl:XElement">[New XElement("Items")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(in_Data(&quot;dt_Items&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,393" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CType(Data(&quot;dt_Items&quot;), DataTable)]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,393" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -284,14 +284,11 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_Data = _&#xD;&#xA;    New XElement(&quot;InvoiceLine&quot;,&#xD;&#xA;        If(String.IsNullOrWhitespace(in_Data.Field(Of String)(&quot;str_DeliveryNoteNumber&quot;)), ' Campo Opcional&#xD;&#xA;            New XElement(&quot;str_DeliveryNoteNumber&quot;, &#xD;&#xA;                New XElement(&quot;DeliveryNote&quot;,&#xD;&#xA;                    New XElement(&quot;DeliveryNoteNumber&quot;, in_Data.Field(Of String)(&quot;str_DeliveryNoteNumber&quot;))&#xD;&#xA;                )&#xD;&#xA;            ), Nothing&#xD;&#xA;        ), &#xD;&#xA;        New XElement(&quot;ItemDescription&quot;, in_Data.Field(Of String)(&quot;str_ItemsDescription&quot;))&#xD;&#xA;    )" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="338,165" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_Data =&#xD;&#xA;new XElement(&quot;InvoiceLine&quot;,&#xD;&#xA;&#x9;String.IsNullOrWhiteSpace(in_Data.Field&lt;string&gt;(&quot;str_DeliveryNoteNumber&quot;)) ? // Campo Opcional&#xD;&#xA;        new XElement(&quot;str_DeliveryNoteNumber&quot;,&#xD;&#xA;            new XElement(&quot;DeliveryNote&quot;,&#xD;&#xA;                new XElement(&quot;DeliveryNoteNumber&quot;, in_Data.Field&lt;string&gt;(&quot;str_DeliveryNoteNumber&quot;))&#xD;&#xA;            )&#xD;&#xA;        )&#xD;&#xA;        : null,&#xD;&#xA;    new XElement(&quot;ItemDescription&quot;, in_Data.Field&lt;string&gt;(&quot;str_ItemsDescription&quot;))&#xD;&#xA;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="338,165" sap2010:WorkflowViewState.IdRef="InvokeCode_4" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Data">
-                    <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="Row" />
-                  </InArgument>
-                  <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">
-                    <VisualBasicReference x:TypeArguments="sxl:XElement" ExpressionText="InvoiceLine" />
-                  </OutArgument>
+                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Data">[Row]</InArgument>
+                  <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">[InvoiceLine]</OutArgument>
+                  <InArgument x:TypeArguments="sxl:XElement" x:Key="in_TaxesOutputs">[TaxesOutputs]</InArgument>
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </Sequence>
@@ -299,21 +296,15 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <ui:InvokeCode Code="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="547,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="string[] invoiceClassRectificative = {&quot;OR&quot;, &quot;CR&quot;}; // clase de factura que son rectificativas&#xD;&#xA;&#xD;&#xA;out_Data =&#xD;&#xA;new XElement(&quot;Facturae&quot;,&#xD;&#xA;&#x9;new XElement(&quot;FileHeader&quot;,&#xD;&#xA;&#x9;&#x9;new XElement(&quot;SchemaVersion&quot;, in_Data[&quot;str_SchemaVersion&quot;].ToString()), // Formato 0.00&#xD;&#xA;&#x9;&#x9;new XElement(&quot;Modality&quot;, in_Data[&quot;str_Modality&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;new XElement(&quot;InvoiceIssuerType&quot;, in_Data[&quot;str_InvoiceIssuerType&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;new XElement(&quot;Batch&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;BatchIdentifier&quot;, in_Data[&quot;str_BatchIdentifier&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;InvoicesCount&quot;, in_Data[&quot;str_InvoicesCount&quot;].ToString()), // Formato &quot;0&quot;&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;TotalInvoicesAmount&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalAmount&quot;, in_Data[&quot;str_InvoiceTotal&quot;].ToString()) // Formato &quot;0.00&quot;&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;/* new XElement(&quot;TotalOutstandingAmount&quot;,  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalAmount&quot;, &quot;0.00&quot;) // Pendiente definir, Formato &quot;0.00&quot;&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;TotalExecutableAmount&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalAmount&quot;, &quot;0.00&quot;) // Pendiente definir, Formato &quot;0.00&quot;&#xD;&#xA;&#x9;&#x9;&#x9;), */&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceCurrencyCode&quot;, in_Data[&quot;str_InvoiceCurrencyCode&quot;].ToString())&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;),&#xD;&#xA;&#x9;new XElement(&quot;Parties&quot;,&#xD;&#xA;&#x9;&#x9;new XElement(&quot;SellerParty&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;TaxIdentification&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PersonTypeCode&quot;, in_Data[&quot;str_SellerPersonTypeCode&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;ResidenceTypeCode&quot;, in_Data[&quot;str_SellerResidenceTypeCode&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TaxIdentificationNumber&quot;, in_Data[&quot;str_SellerTaxIdentificationNumber&quot;].ToString())&#xD;&#xA;            )/*  ,&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;LegalEntity&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CorporateName&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AddressInSpain&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCode&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Town&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;OverseasAddress&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCodeAndTown&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;Individual&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Name&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;FirstSurname&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AddressInSpain&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCode&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Town&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), ' Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;OverseasAddress&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCodeAndTown&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;            ) */&#xD;&#xA;&#x9;&#x9;), &#xD;&#xA;&#x9;&#x9;new XElement(&quot;BuyerParty&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;TaxIdentification&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PersonTypeCode&quot;, in_Data[&quot;str_BuyerPersonTypeCode&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;ResidenceTypeCode&quot;, in_Data[&quot;str_BuyerResidenceTypeCode&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TaxIdentificationNumber&quot;, in_Data[&quot;str_BuyerTaxIdentificationNumber&quot;].ToString())&#xD;&#xA;            )/*,&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;LegalEntity&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CorporateName&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AddressInSpain&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCode&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Town&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;OverseasAddress&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCodeAndTown&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;Individual&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Name&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;FirstSurname&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AddressInSpain&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCode&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Town&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;OverseasAddress&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Address&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;PostCodeAndTown&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Province&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;CountryCode&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;) */&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;),&#xD;&#xA;&#x9;new XElement(&quot;Invoices&quot;,&#xD;&#xA;&#x9;&#x9;new XElement(&quot;Invoice&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceHeader&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceNumber&quot;, in_Data[&quot;str_InvoiceNumber&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceDocumentType&quot;, in_Data[&quot;str_InvoiceDocumentType&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceClass&quot;, in_Data[&quot;str_InvoiceClass&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;invoiceClassRectificative.Contains(in_Data[&quot;str_InvoiceClass&quot;].ToString()) ? // Comprobar si es una factura rectificativa&#xD;&#xA;                    new XElement(&quot;Corrective&quot;,  // Si es factura rectificativa, se incluye el elemento&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceNumber&quot;, in_Data[&quot;str_CorrectiveInvoiceNumber&quot;].ToString()) /*,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;ReasonCode&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;ReasonDescription&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TaxPeriod&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;StartDate&quot;, &quot;2000-12-31&quot;), // Pendiente de definir, Formato &quot;aaaa-MM-dd&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;EndDate&quot;, &quot;2000-12-31&quot;) // Pendiente de definir, Formato &quot;aaaa-MM-dd&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    New XElement(&quot;CorrectionMethod&quot;, &quot;PDT DEFINIR&quot;), // Pendiente de definir, Formato &quot;00&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    New XElement(&quot;CorrectionMethodDescription&quot;, &quot;PDT DEFINIR&quot;) // Pendiente de definir&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;    ) */&#xD;&#xA;                    )&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;: null, // Sí no es rectificativa, no incluye este elemento.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceIssueData&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;IssueDate&quot;, in_Data[&quot;str_IssueDate&quot;].ToString()), // Formato aaaa-MM-dd&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceCurrencyCode&quot;, in_Data[&quot;str_InvoiceCurrencyCode&quot;].ToString()),&#xD;&#xA;                    new XElement(&quot;TaxCurrencyCode&quot;, in_Data[&quot;str_TaxCurrencyCode&quot;].ToString()),&#xD;&#xA;                    new XElement(&quot;LanguageName&quot;, in_Data[&quot;str_LanguageName&quot;].ToString())&#xD;&#xA;                ),&#xD;&#xA;                in_TaxesOutputs,&#xD;&#xA;                new XElement(&quot;InvoiceTotals&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalGrossAmount&quot;, in_Data[&quot;str_TotalGrossAmount&quot;].ToString())&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;),&#xD;&#xA;                new XElement(&quot;TotalGrossAmountBeforeTaxes&quot;, in_Data[&quot;str_TotalGrossAmount&quot;].ToString()),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;/*new XElement(&quot;TotalTaxOutputs&quot;, &quot;0.00&quot;), // Pendiente de definir, Formato &quot;0.00&quot; &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalTaxesWithheld&quot;, &quot;0.00&quot;), // Pendiente de definir, Formato &quot;0.00&quot; */&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;InvoiceTotal&quot;, in_Data[&quot;str_InvoiceTotal&quot;].ToString()) /*,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalOutstandingAmount&quot;, &quot;0.00&quot;), 'Pendiente de definir, Formato &quot;0.00&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;TotalExecutableAmount&quot;, &quot;0.00&quot;) ' Pendiente de Definir, Formato &quot;0.00&quot; */&#xD;&#xA;            ),&#xD;&#xA;            in_Items,&#xD;&#xA;            new XElement(&quot;AdditionalData&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;Attachment&quot;, &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AttachmentFormat&quot;, &quot;pdf&quot;),&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new XElement(&quot;AttachmentData&quot;, in_Data[&quot;str_RutaFichero&quot;].ToString())&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="547,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
       <ui:InvokeCode.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Data">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Data" />
-        </InArgument>
-        <InArgument x:TypeArguments="sxl:XElement" x:Key="in_TaxesOutputs">
-          <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="TaxesOutputs" />
-        </InArgument>
-        <InArgument x:TypeArguments="sxl:XElement" x:Key="in_Items">
-          <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="Items" />
-        </InArgument>
-        <OutArgument x:TypeArguments="sxl:XDocument" x:Key="out_Data" />
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Data">[Data]</InArgument>
+        <InArgument x:TypeArguments="sxl:XElement" x:Key="in_TaxesOutputs">[TaxesOutputs]</InArgument>
+        <InArgument x:TypeArguments="sxl:XElement" x:Key="in_Items">[Items]</InArgument>
+        <OutArgument x:TypeArguments="sxl:XElement" x:Key="out_Data">[Document]</OutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[TaxesOutputs.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[Document.ToString(SaveOptions.DisableFormatting)]" />
     <Assign sap2010:Annotation.AnnotationText="Para crear el nombre del fichero, se quitarán todos los caractéres que no sean alfanuméricos o guion bajo." sap:VirtualizedContainerService.HintSize="547,125" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[BaseFilename]</OutArgument>
@@ -329,7 +320,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[BaseFilename]" />
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="[BaseFilename]" sap:VirtualizedContainerService.HintSize="547,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[doc.OuterXml]" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="[BaseFilename]" sap:VirtualizedContainerService.HintSize="547,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[Document.ToString(SaveOptions.DisableFormatting)]" />
     <Assign DisplayName="Initialize out data" sap:VirtualizedContainerService.HintSize="547,82" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_Data]</OutArgument>
@@ -343,10 +334,10 @@
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[out_Data("BaseFilename")]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[out_Data("Filename")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">[BaseFilename]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[BaseFilename+".pdf"]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
