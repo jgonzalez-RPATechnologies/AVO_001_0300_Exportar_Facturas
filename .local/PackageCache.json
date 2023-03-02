@@ -43,6 +43,21 @@
     },
     {
       "Package": {
+        "Id": "UiPath.FTP.Activities",
+        "Version": "2.3.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\fluentftp\\34.0.0\\lib/net5.0/FluentFTP.dll",
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\ssh.net\\2020.0.1\\lib/netstandard2.0/Renci.SshNet.dll",
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\sshnet.security.cryptography\\1.3.0\\lib/netstandard2.0/SshNet.Security.Cryptography.dll",
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.Activities.Design.dll",
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.Activities.dll",
+        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.dll"
+      ],
+      "Path": "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0"
+    },
+    {
+      "Package": {
         "Id": "UiPath.Mail.Activities",
         "Version": "1.18.2"
       },
@@ -254,21 +269,6 @@
         "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.webapi.activities\\1.13.3\\lib/net5.0-windows7.0/UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.webapi.activities\\1.13.3"
-    },
-    {
-      "Package": {
-        "Id": "UiPath.FTP.Activities",
-        "Version": "2.3.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\fluentftp\\34.0.0\\lib/net5.0/FluentFTP.dll",
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\ssh.net\\2020.0.1\\lib/netstandard2.0/Renci.SshNet.dll",
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\sshnet.security.cryptography\\1.3.0\\lib/netstandard2.0/SshNet.Security.Cryptography.dll",
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.Activities.Design.dll",
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.Activities.dll",
-        "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0\\lib/net5.0-windows7.0/UiPath.FTP.dll"
-      ],
-      "Path": "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\uipath.ftp.activities\\2.3.0"
     }
   ],
   "Conflicts": [],

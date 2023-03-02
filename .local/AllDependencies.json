@@ -21602,9 +21602,9 @@
     "restore": {
       "projectUniqueName": "AVO_001_0300_Exportar_Facturas",
       "projectName": "AVO_001_0300_Exportar_Facturas",
-      "projectPath": "C:\\Users\\AugustoGonzalez-RPA\\OneDrive - Weber Solutions S.L\\Documentos\\UiPath\\AVO_001_0300_Exportar_Facturas\\.local",
+      "projectPath": "C:\\Repositorios\\AVO_001_0300_Exportar_Facturas\\.local",
       "packagesPath": "C:\\Users\\AugustoGonzalez-RPA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AugustoGonzalez-RPA\\OneDrive - Weber Solutions S.L\\Documentos\\UiPath\\AVO_001_0300_Exportar_Facturas\\.local"
+      "outputPath": "C:\\Repositorios\\AVO_001_0300_Exportar_Facturas\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
